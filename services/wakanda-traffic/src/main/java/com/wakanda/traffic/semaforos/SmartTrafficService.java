@@ -1,5 +1,6 @@
-package com.wakanda.traffic.semaforo_inteligente;
+package com.wakanda.traffic.semaforos;
 
+import com.wakanda.traffic.sensores.TrafficSensorData;
 import org.springframework.stereotype.Service;
 
 @Service

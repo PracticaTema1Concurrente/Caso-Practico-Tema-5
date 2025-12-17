@@ -1,4 +1,4 @@
-package com.wakanda.traffic.semaforo_inteligente;
+package com.wakanda.traffic.sensores;
 
 public class TrafficSensorData {
     private String intersectionId; // ID del cruce (ej: "Avenida-Stark-1")
