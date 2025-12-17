@@ -11,18 +11,25 @@ public class TrafficController {
     @Autowired
     private SmartTrafficService smartService;
 
-    // --- Endpoint existente (Simulación simple) ---
     @GetMapping("/semaforos")
     @CircuitBreaker(name = "semaforos", fallbackMethod = "fallbackSemaforos")
     public String getEstadoSemaforos() {
-        if (Math.random() > 0.8) { // Bajé un poco la probabilidad de fallo para que no moleste tanto
-            throw new RuntimeException("¡Fallo en la red de semáforos!");
+        if (Math.random() > 0.5) {
+            throw new RuntimeException("Fallo simulación sensor");
         }
-        return "🟢 Semáforos Inteligentes: SISTEMA ONLINE";
+        return "🚦 Semáforos Inteligentes: FLUJO OPTIMIZADO";
     }
 
-    public String fallbackSemaforos(Throwable t) {
-        return "⚠️ ALERTA: Sistema central caído. Semáforos en modo preventivo (Parpadeo Ámbar).";
+    public String fallbackSemaforos() {
+        return "⚠️ ALERTA: Sensores caídos. Modo de tráfico preventivo activado.";
+    }
+
+    @GetMapping("/info")
+    public String getInfo() {
+        return "🚦 Sistema de Tráfico Inteligente de Wakanda\n" +
+                "- Semáforos inteligentes\n" +
+                "- Estacionamiento inteligente\n" +
+                "- Monitoreo en tiempo real";
     }
 
     // --- NUEVO: Endpoint para recibir datos de SENSORES ---

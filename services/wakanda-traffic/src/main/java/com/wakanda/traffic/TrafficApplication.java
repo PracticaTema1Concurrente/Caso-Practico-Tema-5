@@ -1,3 +1,4 @@
+
 package com.wakanda.traffic;
 
 import org.springframework.boot.SpringApplication;
