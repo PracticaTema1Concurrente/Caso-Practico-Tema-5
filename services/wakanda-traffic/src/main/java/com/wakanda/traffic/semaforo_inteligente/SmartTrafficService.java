@@ -1,4 +1,4 @@
-package com.wakanda.traffic;
+package com.wakanda.traffic.semaforo_inteligente;
 
 import org.springframework.stereotype.Service;
 
