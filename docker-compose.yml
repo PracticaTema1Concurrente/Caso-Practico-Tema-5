@@ -1,30 +1,15 @@
 version: '3.8'
-
 services:
-  # Trazabilidad distribuida (Sleuth envía datos aquí)
   zipkin:
     image: openzipkin/zipkin
-    container_name: wakanda-zipkin
-    ports:
-      - "9411:9411"
-
-  # Base de datos de métricas
+    ports: ["9411:9411"]
   prometheus:
     image: prom/prometheus
-    container_name: wakanda-prometheus
-    ports:
-      - "9090:9090"
+    ports: ["9090:9090"]
     volumes:
-      # Necesitarás crear este archivo prometheus.yml también (ver abajo)
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
-
-  # Visualización de gráficos
   grafana:
     image: grafana/grafana
-    container_name: wakanda-grafana
-    ports:
-      - "3000:3000"
+    ports: ["3000:3000"]
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
-    depends_on:
-      - prometheus

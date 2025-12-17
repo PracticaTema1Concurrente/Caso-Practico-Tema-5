@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: wakanda-config-server
+  profiles:
+    active: native # Usa archivos locales en lugar de Git (más fácil para la entrega)
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config/
