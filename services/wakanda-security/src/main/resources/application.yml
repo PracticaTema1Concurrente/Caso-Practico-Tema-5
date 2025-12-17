@@ -1,0 +1,50 @@
+# Configuración de Resilience4j Circuit Breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      cameras:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+      drones:
+        registerHealthIndicator: true
+        slidingWindowSize: 8
+        minimumNumberOfCalls: 4
+        permittedNumberOfCallsInHalfOpenState: 2
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 15s
+        failureRateThreshold: 60
+        eventConsumerBufferSize: 10
+      alerts:
+        registerHealthIndicator: true
+        slidingWindowSize: 12
+        minimumNumberOfCalls: 6
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 8s
+        failureRateThreshold: 40
+        eventConsumerBufferSize: 10
+
+# Configuración de Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,circuitbreakers,circuitbreakerevents
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+# Logging
+logging:
+  level:
+    io.github.resilience4j: DEBUG
+    com.wakanda.security: DEBUG
