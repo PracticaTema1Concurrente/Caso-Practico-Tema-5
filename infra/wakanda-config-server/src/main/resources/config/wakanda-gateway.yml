@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # Permite encontrar servicios automáticamente por Eureka
+          lower-case-service-id: true

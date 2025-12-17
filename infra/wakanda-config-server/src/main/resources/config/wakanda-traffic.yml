@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+# Configuración específica para el servicio de tráfico
+custom:
+  mensaje: "Configuración de Tráfico cargada desde Wakanda Central"
+
+# Configuración del Circuit Breaker (Resilience4j)
+resilience4j:
+  circuitbreaker:
+    instances:
+      semaforos:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s

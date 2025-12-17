@@ -1,0 +1,5 @@
+server:
+  port: 8082 # Puerto para emergencias
+
+custom:
+  mensaje: "Sistema de Emergencias de Wakanda: ACTIVO"

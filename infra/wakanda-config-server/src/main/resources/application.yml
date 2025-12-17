@@ -1,12 +1,13 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus # Para Grafana
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans # Para Zipkin
+server:
+  port: 8888
+
+spring:
+  application:
+    name: wakanda-config-server
+  profiles:
+    active: native # Modo local (sin GitHub)
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config/ # Busca en la carpeta de abajo
