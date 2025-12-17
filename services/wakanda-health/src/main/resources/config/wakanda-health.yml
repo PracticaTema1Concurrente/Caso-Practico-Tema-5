@@ -1,0 +1,5 @@
+server:
+  port: 8084
+
+custom:
+  mensaje: "Sistema de Salud Wakanda Conectado: ONLINE"
