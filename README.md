@@ -1,3 +1,5 @@
+Gabriel Kaakedjian e Iván Hidalgo
+
 # 🙅‍♂️ Wakanda Smart City - Sistema de Gestión de Servicios
 
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7.18-brightgreen)
