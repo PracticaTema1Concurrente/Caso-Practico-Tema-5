@@ -22,6 +22,9 @@
     <modules>
         <module>infra/wakanda-config-server</module>
         <module>infra/wakanda-discovery</module>
+        <module>infra/wakanda-gateway</module>
+        <module>infra/wakanda-config-server</module>
+        <module>infra/wakanda-discovery</module>
         <module>services/wakanda-traffic</module>
         <module>services/wakanda-emergency</module>
         <module>services/wakanda-health</module>

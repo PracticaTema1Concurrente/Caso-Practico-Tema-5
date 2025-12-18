@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/health")
-public class HealthController {
+public class CentrosController {
 
     @Autowired
     private GestorCentroSalud gestorSalud;

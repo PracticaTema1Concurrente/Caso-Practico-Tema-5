@@ -1,3 +1,4 @@
+
 server:
   port: 8080
 
@@ -6,5 +7,10 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true # Permite encontrar servicios automáticamente por Eureka
-          lower-case-service-id: true
+          enabled: true # Esto permite usar /WAKANDA-HEALTH/...
+          lower-case-service-id: true # Esto permite usar /wakanda-health/...
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

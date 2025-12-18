@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: wakanda-security
+
+# Registro en Eureka para la red de vigilancia
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# Configuración de Seguridad y Control de Acceso de Wakanda
+wakanda:
+  security:
+    escudo-defensa-activo: true
+    nivel-alerta: "VERDE"
+    key-vibranium: "placeholder-key-vibranium-2025" # Placeholder para la clave de cifrado
+    puntos-vigilancia:
+      - "Fronteras Norte"
+      - "Palacio Real"
+      - "Minas de Vibranium"
+      - "Laboratorio Shuri"
+
+# Configuración para Circuit Breaker de los sistemas de escaneo
+resilience4j:
+  circuitbreaker:
+    instances:
+      identityScanner:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15s

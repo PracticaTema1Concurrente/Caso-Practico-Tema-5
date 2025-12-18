@@ -4,8 +4,19 @@ public class DroneRescate {
     private String idDrone;
     private int bateria;
 
+    public DroneRescate() {
+    }
+
     public DroneRescate(String idDrone, int bateria) {
         this.idDrone = idDrone;
+        this.bateria = bateria;
+    }
+
+    public void setIdDrone(String idDrone) {
+        this.idDrone = idDrone;
+    }
+
+    public void setBateria(int bateria) {
         this.bateria = bateria;
     }
 

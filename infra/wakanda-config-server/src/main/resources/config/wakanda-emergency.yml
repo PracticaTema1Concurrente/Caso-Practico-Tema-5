@@ -1,0 +1,30 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: wakanda-emergency
+
+# Configuración de Eureka para que el servicio sea localizable
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# Configuración personalizada para el sistema de alertas y drones
+emergency:
+  config:
+    umbral-proximidad-drones: 500 # metros
+    tiempo-respuesta-objetivo: 300 # segundos
+    mensaje-bienvenida: "🚨 Sistema de Respuesta a Emergencias de Wakanda Activo"
+
+# Configuración del Circuit Breaker para el Gestor de Respuesta
+resilience4j:
+  circuitbreaker:
+    instances:
+      emergencyResponse:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 20s
